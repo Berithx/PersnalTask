@@ -1,24 +1,24 @@
 package 과제.week3.step2;
 
-import java.util.Scanner;
-
 public class Calculator {
-    String addOperator = "덧셈";
-    String substractOperator = "뺄셈";
-    String multiplyOperator = "곱셈";
-    String divideOperator = "나눗셈";
-    String[] request;
-    String[] requestArr;
 
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+    public Calculator () {
+    }
 
-        AddOperation add = new AddOperation();
+    public void calculate (String operator, int number1, int number2) {
 
-        SubstractOperation substrat = new SubstractOperation();
-
-        MultiplyOperation multiply = new MultiplyOperation();
-
-        DivideOperation divide = new DivideOperation();
+        if (operator.equals("+")) {
+            AddOperation add = new AddOperation();
+            add.operate(number1, number2);
+        } else if (operator.equals("-")) {
+            SubstractOperation substract = new SubstractOperation();
+            substract.operate(number1, number2);
+        } else if (operator.equals("*")) {
+            MultiplyOperation multiply = new MultiplyOperation();
+            multiply.operate(number1, number2);
+        } else if (operator.equals("/")) {
+            DivideOperation divide = new DivideOperation();
+            divide.operate(number1, number2);
+        }
     }
 }

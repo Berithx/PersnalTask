@@ -1,11 +1,14 @@
 package 과제.week3.step2;
 
 public class MultiplyOperation {
-    int number1;
-    int number2;
-    double answer;
 
     public MultiplyOperation() {
-        System.out.println("곱셈 객체가 생성되었습니다.");
     }
+
+    public double operate(int number1, int number2) {
+        double answer;
+        answer = (double) number1 * (double) number2;
+        System.out.println(answer);
+        return answer;
+    };
 }
