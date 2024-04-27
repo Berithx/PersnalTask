@@ -4,7 +4,8 @@ public class Calculator {
     public Calculator () {
     }
     public double calculate(String operator, int firstNumber, int secondNumber) {
-        double answer = 0.0;
+        double answer = 0;
+
         if (operator.equals("+")) {
             answer = (double) firstNumber + (double) secondNumber;
         } else if (operator.equals("-")) {

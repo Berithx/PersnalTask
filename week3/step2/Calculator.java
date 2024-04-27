@@ -1,24 +1,34 @@
 package 과제.week3.step2;
 
 public class Calculator {
+    private final AddOperation addOperation;
+    private final  SubstractOperation substractOperation;
+    private final MultiplyOperation multiplyOperation;
+    private final DivideOperation divideOperation;
 
-    public Calculator () {
+    public Calculator (AddOperation addOperation,
+                       SubstractOperation substractOperation,
+                       MultiplyOperation multiplyOperation,
+                       DivideOperation divideOperation) {
+        this.addOperation = addOperation;
+        this.substractOperation = substractOperation;
+        this.multiplyOperation = multiplyOperation;
+        this.divideOperation = divideOperation;
     }
 
-    public void calculate (String operator, int number1, int number2) {
+    public double calculate (String operator, int number1, int number2) {
+        double answer = 0;
 
         if (operator.equals("+")) {
-            AddOperation add = new AddOperation();
-            add.operate(number1, number2);
+            answer = addOperation.operate(number1, number2);
         } else if (operator.equals("-")) {
-            SubstractOperation substract = new SubstractOperation();
-            substract.operate(number1, number2);
+            answer = substractOperation.operate(number1, number2);
         } else if (operator.equals("*")) {
-            MultiplyOperation multiply = new MultiplyOperation();
-            multiply.operate(number1, number2);
+            answer = multiplyOperation.operate(number1, number2);
         } else if (operator.equals("/")) {
-            DivideOperation divide = new DivideOperation();
-            divide.operate(number1, number2);
+            answer = divideOperation.operate(number1, number2);
         }
+
+        return answer;
     }
 }
