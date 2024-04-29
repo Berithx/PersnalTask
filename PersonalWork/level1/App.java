@@ -83,8 +83,15 @@ public class App {
                 System.out.println("삭제되었습니다.");
             }
 
-            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
+            System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+            // inquiry 입력 시 향상된 for문을 통한 저장된 데이터 전체 조회
+            if (sc.next().equals("inquiry")) {
+                for (int i : resultArr) {
+                    System.out.print(i + " ");
+                }
+            }
 
+            System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
         } while (!sc.next().equals("exit"));    // 1번의 계산이 끝난 후 exit 입력여부에 따른 반복계산
     }
 }
