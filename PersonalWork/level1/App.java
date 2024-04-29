@@ -1,5 +1,6 @@
 package 과제.PersonalWork.level1;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
@@ -10,11 +11,9 @@ public class App {
 
         int result = 0;   // 계산 결과
 
-        int[] resultArr = new int[10];    // 계산결과 저장 배열
-        int resultArrIndex = 0;    // 계산결과 저장 배열 Index
+        ArrayList<Integer> resultArr = new ArrayList<>();    // 연산결과 저장 배열(순서 보장과 데이터 중복을 허용하는 컬렉션)
 
         Scanner sc = new Scanner(System.in);
-        String exit;
         do {    // 1번의 계산이 끝난 후 exit 입력여부에 따른 반복계산
             // 양수을 받고 다음 단계로 이동할 수 있도록 while 반복문과 if-else 조건문으로 음수 및 문자 입력 거부
             System.out.print("첫 번째 숫자를 입력해주세요 : ");
@@ -74,14 +73,14 @@ public class App {
             }
             System.out.println("연산 결과 : " + result);
             
-            // 연산 결과 배열 저장
-            if (resultArrIndex <= 9) {    // 배열 index 0~9까지 저장
-                resultArr[resultArrIndex] = result;
-                resultArrIndex += 1;
-            } else if (resultArrIndex == 10) {  // 11번째 연산결과부터 가장 먼저 입력된 값을 지우고 현재 index에서 -1 이후 마지막 순번에 최근 연산 저장
-                for (int i=1; i < resultArr.length; i++)
-                    resultArr[i-1] = resultArr[i];
-                    resultArr[9] = result;
+            // 연산결과 배열 저장
+            resultArr.add(result);
+
+            System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+            // remove 입력 시 ArrayList의 remove 메소스를 사용한 index 0번째 값 삭제
+            if (sc.next().equals("remove")) {
+                resultArr.remove(0);
+                System.out.println("삭제되었습니다.");
             }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
