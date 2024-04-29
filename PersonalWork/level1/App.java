@@ -8,6 +8,8 @@ public class App {
         int secondNumber = 0;
         char operator;
 
+        int result = 0;
+
         Scanner sc = new Scanner(System.in);
 
         // 양수을 받고 다음 단계로 이동할 수 있도록 while 반복문과 if-else 조건문으로 음수 및 문자 입력 거부
@@ -51,6 +53,23 @@ public class App {
             }
         }
 
-        System.out.println("첫 번째 숫자 : " + firstNumber + ", " + "연산자 : " + operator + ", 두 번째 숫자 : " + secondNumber);
+        // operator(연산자) if문으로 구분하여 연산
+        if (operator == '+') {
+            result = firstNumber + secondNumber;
+            System.out.println("연산 결과 : " + result);
+        } else if (operator == '-') {
+            result = firstNumber - secondNumber;
+            System.out.println("연산 결과 : " + result);
+        } else if (operator == '*') {
+            result = firstNumber * secondNumber;
+            System.out.println("연산 결과 : " + result);
+        } else if (operator == '/') {
+            if (secondNumber == 0) {    // 두번째 정수에 0이 입력될 경우 메세지 출력 및 종료
+                System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
+            } else {
+                result = firstNumber / secondNumber;
+                System.out.println("연산 결과 : " + result);
+            }
+        }
     }
 }
