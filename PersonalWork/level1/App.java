@@ -26,6 +26,15 @@ public class App {
             }
         }
 
+        System.out.println("사칙연산 기호를 입력해주세요.");
+        while (true) {
+            operator = sc.next().charAt(0);
+            if (operator == '+' || operator == '-'|| operator == '*' || operator == '/') {
+                break;
+            }
+            System.out.println("+, -, *, / 중 필요한 연산자를 입력해주세요.");
+        }
+
         // 양수을 받고 다음 단계로 이동할 수 있도록 while 반복문으로 음수 거부
         System.out.print("두 번째 숫자를 입력해주세요 : ");
         while (true) {
@@ -42,6 +51,6 @@ public class App {
             }
         }
 
-        System.out.println("첫 번째 숫자 : " + firstNumber + ", 두 번째 숫자 : " + secondNumber);
+        System.out.println("첫 번째 숫자 : " + firstNumber + ", " + "연산자 : " + operator + ", 두 번째 숫자 : " + secondNumber);
     }
 }
