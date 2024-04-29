@@ -4,11 +4,14 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        int firstNumber = 0;
-        int secondNumber = 0;
-        char operator;
+        int firstNumber = 0;    // 첫번째 정수
+        int secondNumber = 0;    // 두번째 정수
+        char operator;    // 연산자
 
-        int result = 0;
+        int result = 0;   // 계산 결과
+
+        int[] resultArr = new int[10];    // 계산결과 저장 배열
+        int resultArrIndex = 0;    // 계산결과 저장 배열 Index
 
         Scanner sc = new Scanner(System.in);
         String exit;
@@ -57,21 +60,22 @@ public class App {
             // operator(연산자) if문으로 구분하여 연산
             if (operator == '+') {    // 덧셈
                 result = firstNumber + secondNumber;
-                System.out.println("연산 결과 : " + result);
             } else if (operator == '-') {    // 뺄셈
                 result = firstNumber - secondNumber;
-                System.out.println("연산 결과 : " + result);
             } else if (operator == '*') {    // 곱셈
                 result = firstNumber * secondNumber;
-                System.out.println("연산 결과 : " + result);
             } else if (operator == '/') {    // 나눗셈
                 if (secondNumber == 0) {    // 두번째 정수에 0이 입력될 경우 메세지 출력 및 종료
                     System.out.println("나눗셈 연산에서 분모(두번째 정수)에 0이 입력될 수 없습니다.");
                 } else {
                     result = firstNumber / secondNumber;
-                    System.out.println("연산 결과 : " + result);
                 }
             }
+            System.out.println("연산 결과 : " + result);
+
+            resultArr[resultArrIndex] = result;    // 연산결과 배열 저장
+            resultArrIndex += 1;    // 연산결과 배열 index 증가
+
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
         } while (!sc.next().equals("exit"));    // 1번의 계산이 끝난 후 exit 입력여부에 따른 반복계산
     }
