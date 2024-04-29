@@ -33,6 +33,7 @@ public class App {
             }
 
             System.out.println("사칙연산 기호를 입력해주세요.");
+            // +, -, *, / 만 입력 받기
             while (true) {
                 operator = sc.next().charAt(0);
                 if (operator == '+' || operator == '-' || operator == '*' || operator == '/') {
@@ -72,11 +73,19 @@ public class App {
                 }
             }
             System.out.println("연산 결과 : " + result);
-
-            resultArr[resultArrIndex] = result;    // 연산결과 배열 저장
-            resultArrIndex += 1;    // 연산결과 배열 index 증가
+            
+            // 연산 결과 배열 저장
+            if (resultArrIndex <= 9) {    // 배열 index 0~9까지 저장
+                resultArr[resultArrIndex] = result;
+                resultArrIndex += 1;
+            } else if (resultArrIndex == 10) {  // 11번째 연산결과부터 가장 먼저 입력된 값을 지우고 현재 index에서 -1 이후 마지막 순번에 최근 연산 저장
+                for (int i=1; i < resultArr.length; i++)
+                    resultArr[i-1] = resultArr[i];
+                    resultArr[9] = result;
+            }
 
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
+
         } while (!sc.next().equals("exit"));    // 1번의 계산이 끝난 후 exit 입력여부에 따른 반복계산
     }
 }
