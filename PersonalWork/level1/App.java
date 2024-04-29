@@ -12,7 +12,7 @@ public class App {
 
         Scanner sc = new Scanner(System.in);
         String exit;
-        do {
+        do {    // 1번의 계산이 끝난 후 exit 입력여부에 따른 반복계산
             // 양수을 받고 다음 단계로 이동할 수 있도록 while 반복문과 if-else 조건문으로 음수 및 문자 입력 거부
             System.out.print("첫 번째 숫자를 입력해주세요 : ");
             while (true) {
@@ -73,6 +73,6 @@ public class App {
                 }
             }
             System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
-        } while (!sc.next().equals("exit"));
+        } while (!sc.next().equals("exit"));    // 1번의 계산이 끝난 후 exit 입력여부에 따른 반복계산
     }
 }
