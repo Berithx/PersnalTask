@@ -32,18 +32,14 @@ public class Calculator {
         return result;
     }
 
-    // 외부에서 데이터를 읽을 수 있도록 getter 메서드 선언
-    public String getResult() {
-        return resultArr.toString();
+    // 외부에서 resultArr 필드에 접근해서 읽을 수 있도록 getter 메서드 선언
+    public ArrayList<Integer> getResult() {
+        return this.resultArr;
     }
 
-    // 외부에서 데이터를 수정할 수 있도록 setter 메서드 선언
+    // 외부에서 resultArr 필드에 접근해서 수정할 수 있도록 setter 메서드 선언
     public void setResultArr(int index, int value) {
-        this.resultArr.set(index, value);
+        resultArr.set(index, value);
     }
 
-    // 외부에서 데이터를 가장 먼저 입력된 값을 삭제할 수 있도록 remove 메서드 선언
-    public void removeResult() {
-        resultArr.remove(0);
-    }
 }
