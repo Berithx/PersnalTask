@@ -41,5 +41,4 @@ public class Calculator {
     public void setResultArr(int index, int value) {
         resultArr.set(index, value);
     }
-
 }

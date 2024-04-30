@@ -38,13 +38,26 @@ public class App {
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             // inquiry 입력 시 Calculator 객체의 ArrayList 필드에 저장된 데이터를 getter 메서드를 통해 간접 접근하여 읽기
             if (sc.next().equals("inquiry")) {
-                System.out.println(calc.getResult());
+                System.out.println(calc.getResult().toString());
+            }
+
+            System.out.println("저장된 연살결과를 수정하시겠습니까? (modify 입력 시 수정)");
+            //
+            if(sc.next().equals("modify")) {
+                System.out.println(calc.getResult().toString());
+                System.out.println("현재 저장된 값을 확인 후 수정하고자 하는 값의 순번(index)과 수정될 값을 정수 형태로 입력해주세요");
+                System.out.print("순번(index) : ");
+                int index = sc.nextInt();       // 수정할 컬렉션의 index 입력
+                System.out.print("수정될 값 : ");
+                int value = sc.nextInt();       // 수정되어 저장될 값 입력
+                calc.setResultArr(index, value);    // Calculator setter 메서드를 활용
+                System.out.println("수정되었습니다.");
             }
 
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
-            // remove 입력 시 Caculator 객체의 ArrayList 필드를 접근하여 index 0번째 값 삭제
+            // remove 입력 시 Caculator 객체의 ArrayList 필드를 removeResult 메서드를 통해 간접 접근하여 index 0번째 값 삭제
             if (sc.next().equals("remove")) {
-                calc.resultArr.remove(0);    // 직접 접근하여 remove 메서드를 사용
+                calc.resultArr.remove(0);    // 직접 접근하여 remove 메서드를 사용하는 방법에서 Calculator 객체의 removeResult 메서드를 통해 간접 접근해서 삭제로 수정
                 System.out.println("삭제되었습니다.");
             }
 
