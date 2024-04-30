@@ -41,4 +41,9 @@ public class Calculator {
     public void setResultArr(int index, int value) {
         this.resultArr.set(index, value);
     }
+
+    // 외부에서 데이터를 가장 먼저 입력된 값을 삭제할 수 있도록 remove 메서드 선언
+    public void removeResult() {
+        resultArr.remove(0);
+    }
 }
