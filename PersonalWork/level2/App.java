@@ -57,7 +57,7 @@ public class App {
             System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
             // remove 입력 시 Caculator 객체의 ArrayList 필드를 removeResult 메서드를 통해 간접 접근하여 index 0번째 값 삭제
             if (sc.next().equals("remove")) {
-                calc.resultArr.remove(0);    // 직접 접근하여 remove 메서드를 사용하는 방법에서 Calculator 객체의 removeResult 메서드를 통해 간접 접근해서 삭제로 수정
+                calc.removeResult();    // 직접 접근하여 remove 메서드를 사용하는 방법에서 Calculator 객체의 removeResult 메서드를 통해 간접 접근해서 삭제로 수정
                 System.out.println("삭제되었습니다.");
             }
 
