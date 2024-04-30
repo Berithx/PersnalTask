@@ -26,6 +26,8 @@ public class Calculator {
             throw new BadInputException("연산자에는 +, -, *, /만 입력할 수 있습니다.");
         }
 
+        resultArr.add(result);
+
         return result;
     }
 }
