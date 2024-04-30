@@ -38,7 +38,7 @@ public class Calculator {
     }
 
     // 외부에서 데이터를 수정할 수 있도록 setter 메서드 선언
-    public void delResultArr(int index) {
-        this.resultArr.remove(index);
+    public void setResultArr(int index, int value) {
+        this.resultArr.set(index, value);
     }
 }
