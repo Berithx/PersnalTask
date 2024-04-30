@@ -39,11 +39,15 @@ public class Calculator {
 
     // 외부에서 resultArr 필드에 접근해서 수정할 수 있도록 setter 메서드 선언
     public void setResultArr(int index, int value) {
-        resultArr.set(index, value);
+        this.resultArr.set(index, value);
     }
 
     // 외부에서 데이터를 가장 먼저 입력된 값을 삭제할 수 있도록 remove 메서드 선언
     public void removeResult() {
-        resultArr.remove(0);
+        this.resultArr.remove(0);
+    }
+
+    public void inquiryResults() {
+        System.out.println(this.resultArr.toString());
     }
 }

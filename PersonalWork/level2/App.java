@@ -38,7 +38,7 @@ public class App {
             System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
             // inquiry 입력 시 Calculator 객체의 ArrayList 필드에 저장된 데이터를 getter 메서드를 통해 간접 접근하여 읽기
             if (sc.next().equals("inquiry")) {
-                System.out.println(calc.getResult().toString());
+                calc.inquiryResults();
             }
 
             System.out.println("저장된 연살결과를 수정하시겠습니까? (modify 입력 시 수정)");
