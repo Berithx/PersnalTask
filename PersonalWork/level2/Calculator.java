@@ -8,10 +8,11 @@ public abstract class Calculator {
     }
 
     // 사칙연산 연산, 결과 값 저장, 리턴 메서드
-    public abstract void calculate(int firstNumber, char operator, int secondNumber) throws BadInputException;
+    public double calculate() {
+        double answer = 0;
 
-    // 원의 넓이 계산, 컬렉션 저장, 리턴 메서드
-    public abstract double calculate(double radius);
+        return (int) answer;
+    };
 
     // 외부에서 연산결과 저장 컬렉션 필드에 간접 접근해서 읽을 수 있도록 getter 메서드 선언
     public abstract ArrayList<Double> getResultArray();

@@ -12,8 +12,7 @@ public class ArithmeticCalculator extends Calculator {
     }
 
     // 사칙연산 연산, 결과 값 저장, 리턴 메서드
-    @Override
-    public void calculate(int firstNumber, char operator, int secondNumber) throws BadInputException {
+    public double calculate(int firstNumber, char operator, int secondNumber) throws BadInputException {
         double result = 0;
 
         if(operator == '+') {
@@ -32,7 +31,7 @@ public class ArithmeticCalculator extends Calculator {
 
         resultArray.add(result);
 
-        System.out.println("연산 결과 : " + (int) result);
+        return (int) result;
     }
 
     // 외부에서 연산결과 저장 컬렉션 필드에 간접 접근해서 읽을 수 있도록 getter 메서드 선언
@@ -57,10 +56,5 @@ public class ArithmeticCalculator extends Calculator {
     @Override
     public void inquiryResults() {
         System.out.println(this.resultArray.toString());
-    }
-
-    @Override
-    public double calculate(double radius) {
-        return 0;
     }
 }

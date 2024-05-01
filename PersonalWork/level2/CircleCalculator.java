@@ -13,7 +13,6 @@ public class CircleCalculator extends Calculator {
     }
 
     // 원의 넓이 계산, 컬렉션 저장, 리턴 메서드
-    @Override
     public double calculate(double radius) {
         double circleArea = (radius * radius) * pi;
 
@@ -44,9 +43,5 @@ public class CircleCalculator extends Calculator {
     @Override
     public void inquiryResults() {
         System.out.println(this.resultArray.toString());
-    }
-
-    @Override
-    public void calculate(int firstNumber, char operator, int secondNumber) throws BadInputException {
     }
 }
