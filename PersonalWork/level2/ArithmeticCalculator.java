@@ -5,10 +5,21 @@ import java.util.ArrayList;
 public class ArithmeticCalculator extends Calculator {
     // private 접근제어자 설정으로 외부에서 컬렉션에 접근하는 것과 수정하는 것 방지
     private ArrayList<Double> resultArray;    // 연산결과 저장 배열 선언
+    AddOperator addOperator;
+    SubtractOperator subtractOperator;
+    MultiplyOperator multiplyOperator;
+    DivideOperator divideOperator;
 
     // 객체 생성자
-    public ArithmeticCalculator() {
+    public ArithmeticCalculator(AddOperator addOperator,
+                                SubtractOperator subtractOperator,
+                                MultiplyOperator multiplyOperator,
+                                DivideOperator divideOperator) {
         resultArray = new ArrayList<>();     // 사칙연산 연산결과 컬렉션, 인스턴스 생성과 함께 생성 및 초기화
+        this.addOperator = addOperator;
+        this.subtractOperator = subtractOperator;
+        this.multiplyOperator = multiplyOperator;
+        this.divideOperator = divideOperator;
     }
 
     // 사칙연산 연산, 결과 값 저장, 리턴 메서드
@@ -16,15 +27,16 @@ public class ArithmeticCalculator extends Calculator {
         double result = 0;
 
         if(operator == '+') {
-            result = firstNumber + (double) secondNumber;
+            result = addOperator.operate(firstNumber, secondNumber);
         } else if (operator == '-') {
+            result = subtractOperator.operate(firstNumber, secondNumber);
          } else if (operator == '*') {
-            result = firstNumber * (double) secondNumber;
+            result = multiplyOperator.operate(firstNumber, secondNumber);
         } else if (operator == '/') {
             if (secondNumber == 0) {
                 throw new BadInputException("나눗셈 분모에는 0이 입력될 수 없습니다.");
             }
-            result = firstNumber / (double) secondNumber;
+            result = divideOperator.operate(firstNumber, secondNumber);
         } else {
             throw new BadInputException("연산자에는 +, -, *, /만 입력할 수 있습니다.");
         }

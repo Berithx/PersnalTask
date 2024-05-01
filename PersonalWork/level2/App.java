@@ -16,7 +16,10 @@ public class App {
 
         // if문을 통한 Calculator 인스턴스 객체 생성
         if (select.equals("사칙연산")) {
-            cal = new ArithmeticCalculator();
+            cal = new ArithmeticCalculator(new AddOperator(),
+                    new SubtractOperator(),
+                    new MultiplyOperator(),
+                    new DivideOperator());
         } else if (select.equals("원의 넓이")) {
             calc = new CircleCalculator();
         }
